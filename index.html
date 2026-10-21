@@ -1,161 +1,797 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Ahyesia Denise Manalastas | Portfolio</title>
 
     <style>
+        /* GENERAL SETTINGS */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --background: #0b1020;
+            --card: #151d33;
+            --primary: #8b7cff;
+            --secondary: #40d9ff;
+            --text: #f4f5ff;
+            --muted: #b2bdd2;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #fceef4;
-            color: #333;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
         }
 
-        header {
-            background-color: #d96c9d;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-
-        nav {
-            background-color: #b84f80;
-            padding: 12px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
+        a {
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #ffe2ef;
+            color: inherit;
         }
 
         .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: white;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background-color: #f5c5d9;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-        }
-
-        h2 {
-            color: #c04d83;
-            margin-bottom: 15px;
-        }
-
-        p {
-            margin-bottom: 20px;
-        }
-
-        .button {
-            display: inline-block;
-            background-color: #d96c9d;
-            color: white;
-            padding: 10px 20px;
-            margin: 5px;
-            text-decoration: none;
-            border-radius: 20px;
-        }
-
-        .button:hover {
-            background-color: #b84f80;
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
         }
 
         section {
-            margin: 30px 0;
+            padding: 85px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .highlight {
+            color: var(--secondary);
+        }
+
+        /* NAVIGATION BAR */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 16, 32, 0.95);
+            border-bottom: 1px solid #29334d;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--muted);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* HOME SECTION */
+        #home {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 80% 25%, #28205b 0, transparent 35%),
+                var(--background);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .hero-label {
+            color: var(--secondary);
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            line-height: 1.2;
+            margin: 15px 0;
+        }
+
+        .hero h2 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-weight: bold;
+            border: 1px solid var(--primary);
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px #8b7cff35;
+        }
+
+        .btn-outline {
+            color: var(--text);
+        }
+
+        .hero-visual {
+            width: 270px;
+            height: 270px;
+            max-width: 100%;
+            margin: auto;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            background: linear-gradient(135deg, #272052, #102b49);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 60px #8b7cff25;
+        }
+
+        .hero-visual span {
+            font-size: 5rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        /* ABOUT SECTION */
+        #about {
+            background: #0f1629;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #29334d;
+            border-radius: 15px;
+            background: var(--card);
+        }
+
+        .about-content p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background: #242347;
+            border: 1px solid #49417f;
+            padding: 7px 13px;
+            border-radius: 20px;
+            color: #d9d5ff;
+            font-size: 0.85rem;
+        }
+
+        /* PROJECTS SECTION */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid #29334d;
+            padding: 28px;
+            border-radius: 15px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .project-icon {
+            font-size: 2.3rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .project-subtitle {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card h4 {
+            margin: 20px 0 8px;
+            color: var(--primary);
+        }
+
+        .project-card ul,
+        .project-card ol {
+            padding-left: 22px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .project-card li {
+            margin-bottom: 5px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .project-tags span {
+            font-size: 0.78rem;
+            color: var(--secondary);
+            background: #102b40;
+            padding: 5px 9px;
+            border-radius: 5px;
+        }
+
+        .notice {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 6px 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+            background: #3b2d1b;
+            color: #ffd58c;
+        }
+
+        /* EDUCATION SECTION */
+        #education {
+            background: #0f1629;
+        }
+
+        .education-list {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .education-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 22px;
+            margin-bottom: 15px;
+            border: 1px solid #29334d;
+            background: var(--card);
+            border-radius: 12px;
+        }
+
+        .education-icon {
+            font-size: 1.8rem;
+        }
+
+        .education-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .education-item p {
+            color: var(--muted);
+        }
+
+        .education-level {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CONTACT SECTION */
+        .contact-box {
+            text-align: center;
+            max-width: 650px;
+            margin: auto;
+            padding: 35px;
+            background: var(--card);
+            border: 1px solid #29334d;
+            border-radius: 15px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin: 15px 0 25px;
         }
 
         footer {
-            background-color: #b84f80;
-            color: white;
             text-align: center;
-            padding: 15px;
-            margin-top: 40px;
+            padding: 25px 15px;
+            border-top: 1px solid #29334d;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* MOBILE RESPONSIVE DESIGN */
+        @media (max-width: 750px) {
+            nav {
+                padding: 15px 0;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+
+            #home {
+                min-height: auto;
+                padding: 75px 0;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-visual {
+                grid-row: 1;
+                width: 180px;
+                height: 180px;
+            }
+
+            .hero-visual span {
+                font-size: 3.5rem;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .about-content,
+            .project-card,
+            .contact-box {
+                padding: 22px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- NAVIGATION -->
     <header>
-        <h1>Welcome to My Website!</h1>
-        <p>My Personal Portfolio</p>
+        <nav class="container">
+            <a href="#home" class="logo">Ahyesia.dev</a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About Me</a>
-        <a href="#skills">My Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <main>
 
-    <div class="container" id="home">
+        <!-- HOME -->
+        <section id="home">
+            <div class="container hero">
 
-        <div class="profile">👩🏻‍💻</div>
+                <div>
+                    <div class="hero-label">Welcome to My Portfolio</div>
 
-        <h2>Hello, I'm Your Name!</h2>
+                    <h1>
+                        Hi, I'm <span class="highlight">Ahyesia Denise
+                        Manalastas</span>
+                    </h1>
 
+                    <h2>BS Computer Engineering Student</h2>
+
+                    <p>
+                        Passionate about exploring the intersection of
+                        hardware and software. I love building practical
+                        solutions, learning programming languages, and
+                        understanding how computing systems work from the
+                        inside out. Driven by curiosity and always eager
+                        to learn and innovate.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            Explore My Projects
+                        </a>
+
+                        <a href="#about" class="btn btn-outline">
+                            About Me
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-label="Personal initials">
+                    <span>AM</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT ME -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+
+                <p class="section-description">
+                    Get to know more about me and my interests.
+                </p>
+
+                <div class="about-content">
+                    <p>
+                        Hello! I am <strong>Ahyesia Denise Manalastas</strong>,
+                        a fourth-year Bachelor of Science in Computer
+                        Engineering student at ICCT Colleges.
+                    </p>
+
+                    <p>
+                        I am interested in how hardware and software work
+                        together to solve real-world problems. As a Computer
+                        Engineering student, I enjoy exploring technology,
+                        developing system concepts, and learning how
+                        microcontrollers, programming, and automation can
+                        help people in their everyday lives.
+                    </p>
+
+                    <p>
+                        My projects reflect my interest in assistive
+                        technology, healthcare applications, and smart
+                        agricultural systems. I aim to continue improving
+                        my technical skills and use what I learn to create
+                        useful and meaningful innovations.
+                    </p>
+
+                    <h3>Areas of Interest</h3>
+
+                    <div class="skills">
+                        <span class="skill">Computer Engineering</span>
+                        <span class="skill">Programming</span>
+                        <span class="skill">Hardware & Software</span>
+                        <span class="skill">Microcontrollers</span>
+                        <span class="skill">Arduino</span>
+                        <span class="skill">Automation</span>
+                        <span class="skill">Web Development</span>
+                        <span class="skill">System Design</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+
+                <p class="section-description">
+                    Academic projects and engineering concepts that
+                    reflect my interests in technology and innovation.
+                </p>
+
+                <div class="projects-grid">
+
+                    <!-- PROJECT 1: DIALYCARE -->
+                    <article class="project-card">
+                        <div class="project-icon">🏥</div>
+
+                        <h3>DialyCare</h3>
+
+                        <div class="project-subtitle">
+                            Dialysis Scheduling & Notification Application
+                        </div>
+
+                        <p>
+                            <strong>Smarter Scheduling, Timely Care.</strong>
+                        </p>
+
+                        <p>
+                            DialyCare is a dialysis scheduling and
+                            notification application designed to improve
+                            the management of dialysis schedules and
+                            communication between dialysis-center staff,
+                            patients, and their designated relatives or
+                            companions.
+                        </p>
+
+                        <h4>Coordination Workflow</h4>
+
+                        <ol>
+                            <li>Patient scheduling</li>
+                            <li>Session monitoring</li>
+                            <li>Patient and relative updates</li>
+                            <li>SMS notifications</li>
+                        </ol>
+
+                        <h4>Project Goal</h4>
+
+                        <p>
+                            To support organized dialysis scheduling,
+                            timely reminders, and better communication
+                            among the people involved in patient care.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Healthcare Technology</span>
+                            <span>Scheduling</span>
+                            <span>SMS Notifications</span>
+                            <span>Application Development</span>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 2: NEUROCOMM -->
+                    <article class="project-card">
+                        <div class="project-icon">🗣️</div>
+
+                        <h3>NeuroComm Board Converter</h3>
+
+                        <div class="project-subtitle">
+                            Assistive Communication System
+                        </div>
+
+                        <p>
+                            A microcontroller-based assistive communication
+                            board designed to help people with aphasia
+                            express common needs through accessible physical
+                            buttons and immediate pre-recorded voice output.
+                        </p>
+
+                        <h4>Proposed Components</h4>
+
+                        <ul>
+                            <li>Arduino Uno R3</li>
+                            <li>DFPlayer Mini</li>
+                            <li>EEPROM</li>
+                            <li>MicroSD card</li>
+                            <li>Speaker and physical buttons</li>
+                        </ul>
+
+                        <h4>Proposed Signal Path</h4>
+
+                        <ol>
+                            <li>Physical button sends an input to Arduino Uno R3.</li>
+                            <li>LED provides feedback to the user.</li>
+                            <li>DFPlayer Mini plays a recorded voice through a speaker.</li>
+                            <li>EEPROM stores event information.</li>
+                        </ol>
+
+                        <div class="project-tags">
+                            <span>Arduino</span>
+                            <span>Embedded Systems</span>
+                            <span>Assistive Technology</span>
+                            <span>Voice Output</span>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 3: SOLAR IRRIGATION -->
+                    <article class="project-card">
+                        <div class="project-icon">🌱</div>
+
+                        <h3>Solar-Powered Subsurface Irrigation</h3>
+
+                        <div class="project-subtitle">
+                            Smart Irrigation Concept for Eggplant Farming
+                        </div>
+
+                        <p>
+                            A proposed smart irrigation system that combines
+                            solar energy, sensor-based monitoring, automated
+                            control, and subsurface water delivery to
+                            support more efficient irrigation for eggplant
+                            farming.
+                        </p>
+
+                        <h4>Key Features</h4>
+
+                        <ul>
+                            <li>Solar energy and power system</li>
+                            <li>Soil and environmental monitoring</li>
+                            <li>Automated decision and control</li>
+                            <li>Subsurface water delivery</li>
+                            <li>Water delivery toward the eggplant root zone</li>
+                        </ul>
+
+                        <h4>Conceptual System Workflow</h4>
+
+                        <ol>
+                            <li>Solar energy supplies the proposed power system.</li>
+                            <li>Sensors monitor soil and environmental conditions.</li>
+                            <li>A controller evaluates sensor readings.</li>
+                            <li>The irrigation system delivers water below the soil surface.</li>
+                            <li>Water is directed toward the eggplant root zone.</li>
+                        </ol>
+
+                        <div class="notice">
+                            Conceptual System · Not a Validated Build
+                        </div>
+
+                        <div class="project-tags">
+                            <span>Solar Energy</span>
+                            <span>Smart Irrigation</span>
+                            <span>Automation</span>
+                            <span>Sensor Monitoring</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title">My <span class="highlight">Education</span></h2>
+
+                <p class="section-description">
+                    My educational journey and academic background.
+                </p>
+
+                <div class="education-list">
+
+                    <div class="education-item">
+                        <div class="education-icon">🎒</div>
+                        <div>
+                            <div class="education-level">Elementary</div>
+                            <h3>San Mariano East Elementary School</h3>
+                            <p>Elementary Education</p>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-icon">📚</div>
+                        <div>
+                            <div class="education-level">Secondary</div>
+                            <h3>San Mariano National High School</h3>
+                            <p>Junior High School</p>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-icon">🎓</div>
+                        <div>
+                            <div class="education-level">Senior High School</div>
+                            <h3>Saint John School</h3>
+                            <p>Senior High School Education</p>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-icon">💻</div>
+                        <div>
+                            <div class="education-level">College</div>
+                            <h3>ICCT Colleges</h3>
+                            <p>
+                                Bachelor of Science in Computer Engineering
+                                (BS CpE)
+                            </p>
+                            <p>Fourth-Year Student</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">
+                    Let's <span class="highlight">Connect</span>
+                </h2>
+
+                <div class="contact-box">
+                    <h3>Thank you for visiting my portfolio!</h3>
+
+                    <p>
+                        I am always eager to learn, explore new technologies,
+                        and discover opportunities to grow as a Computer
+                        Engineering student.
+                    </p>
+
+                    <a href="#home" class="btn btn-primary">
+                        Back to Home ↑
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
         <p>
-            Welcome to my personal website.
-            I am a student who enjoys learning new things,
-            exploring technology, and improving my skills.
+            &copy; <span id="year"></span>
+            Ahyesia Denise Manalastas. All rights reserved.
         </p>
 
-        <a href="#about" class="button">Learn More</a>
-        <a href="#contact" class="button">Contact Me</a>
-
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                I am a college student who wants to learn more
-                about technology, creativity, and personal development.
-                This website is a small introduction about myself.
-            </p>
-        </section>
-
-        <section id="skills">
-            <h2>My Skills</h2>
-            <p>Communication • Teamwork • Creativity • Basic HTML and CSS</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Email: yourname@email.com</p>
-            <p>Thank you for visiting my website!</p>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 My Personal Website. All rights reserved.</p>
+        <p>Designed with passion for technology and innovation.</p>
     </footer>
+
+    <script>
+        // Automatically update the copyright year.
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
 
 </body>
 </html>
